@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3" >
+  <Parameters version="s7.9.4" stackSize="5000" millimeterUnit="true" />
+  <Programs>
+    <Program file="argumentParse.pgx" />
+    <Program file="commandCheck.pgx" />
+    <Program file="commandExecute.pgx" />
+    <Program file="dataReset.pgx" />
+    <Program file="ioLinks.pgx" />
+    <Program file="serverCmd.pgx" />
+    <Program file="socketRead.pgx" />
+    <Program file="socketWrite.pgx" />
+    <Program file="start.pgx" />
+    <Program file="stop.pgx" />
+  </Programs>
+  <Database>
+    <Data file="MX1_NETWORK.dtx" />
+  </Database>
+  <Libraries>
+    <Library alias="MX1_COMMANDS" path="Disk://MX1_COMMANDS" autoload="true" password="" />
+    <Library alias="io" path="Disk://io" autoload="true" password="" />
+  </Libraries>
+  <Types>
+  </Types>
+</Project>

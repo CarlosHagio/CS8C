@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="commandCheck" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="nArgs" type="num" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="nNbArgs" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="sBuffer" type="string" use="reference" xsi:type="element" dimensions="1" />
+      <Parameter name="sCommand" type="string" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="bFlag" type="bool" use="reference" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  //check command name and arguments
+  //everything passed by reference from serverCmd 
+  bFlag=false
+  switch sCommand
+    case "gripper"
+      if nNbArgs!=1
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
+      else
+        if (nArgs[0]<0) or (nArgs[0]>1)
+          sBuffer="NACK: "+sCommand+" nArgs[0]: "+chr(nArgs[0])
+        else
+          bFlag=true
+        endIf
+      endIf
+    break
+    case "power"
+      if nNbArgs!=1
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+toString("",nNbArgs)
+      else
+        if (nArgs[0]<0) or (nArgs[0]>1)
+          sBuffer="NACK: "+sCommand+" nArgs[0]: "+toString("",nArgs[0])
+        else
+          bFlag=true
+        endIf
+      endIf
+    break
+    case "stopMove"
+      if nNbArgs!=0
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
+      else
+        bFlag=true
+      endIf
+    break
+    case "restartMove"
+      if nNbArgs!=0
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
+      else
+        bFlag=true
+      endIf
+    break
+    case "isSettled"
+      if nNbArgs!=0
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
+      else
+        bFlag=true
+      endIf
+    break
+    case "setFrame"
+      if nNbArgs!=1
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
+      else
+        if (nArgs[0]<0) or (nArgs[0]>3)
+          sBuffer="NACK: "+sCommand+" nArgs[0]: "+chr(nArgs[0])
+        else
+          bFlag=true
+        endIf
+      endIf
+    break
+    case "setTool"
+      if nNbArgs!=1
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
+      else
+        if (nArgs[0]<0) or (nArgs[0]>3)
+          sBuffer="NACK: "+sCommand+" nArgs[0]: "+chr(nArgs[0])
+        else
+          bFlag=true
+        endIf
+      endIf
+    break
+    case "moveX"
+      if nNbArgs!=1
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
+      else
+        if abs(nArgs[0])>50
+          sBuffer="NACK: "+sCommand+" nArgs[0]: "+chr(nArgs[0])
+        else
+          bFlag=true
+        endIf
+      endIf
+    break
+    case "moveY"
+      if nNbArgs!=1
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
+      else
+        if abs(nArgs[0])>50
+          sBuffer="NACK: "+sCommand+" nArgs[0]: "+chr(nArgs[0])
+        else
+          bFlag=true
+        endIf
+      endIf
+    break
+    case "moveZ"
+      if nNbArgs!=1
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
+      else
+        if abs(nArgs[0])>50
+          sBuffer="NACK: "+sCommand+" nArgs[0]: "+chr(nArgs[0])
+        else
+          bFlag=true
+        endIf
+      endIf
+    break
+    case "getX"
+      if nNbArgs!=0
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
+      else
+        bFlag=true
+      endIf
+    break
+    case "getY"
+      if nNbArgs!=0
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
+      else
+        bFlag=true
+      endIf
+    break
+    case "getZ"
+      if nNbArgs!=0
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
+      else
+        bFlag=true
+      endIf
+    break
+    default
+      logMsg("commandCheck fail: "+sCommand)
+    break
+  endSwitch
+  //
+end]]></Code>
+  </Program>
+</Programs>

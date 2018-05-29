@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="serverCmd" access="private" >
+    <Locals>
+      <Local name="bFlag" type="bool" xsi:type="array" size="1" />
+      <Local name="nArgs" type="num" xsi:type="array" size="8" />
+      <Local name="nBuffer" type="num" xsi:type="array" size="30" />
+      <Local name="nBytes" type="num" xsi:type="array" size="1" />
+      <Local name="nIndex" type="num" xsi:type="array" size="1" />
+      <Local name="nNbArgs" type="num" xsi:type="array" size="1" />
+      <Local name="ni" type="num" xsi:type="array" size="1" />
+      <Local name="sBuffer" type="string" xsi:type="array" size="1" />
+      <Local name="sCommand" type="string" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //server task - read and write on socket
+  //SETUP - CLEAR BUFFER
+  clearBuffer(sSocket1)
+  ////////FOREVER LOOP - TASK////////
+  while (true)
+    //nBytes = number of bytes read to nBuffer
+    //nBytes must be less than 30 and not empty
+    nBytes=sioGet(sSocket1,nBuffer)
+    if (nBytes>0) and (nBytes<30)
+      //INPUT PARSING
+      call argumentParse(nBuffer,nBytes,nArgs,nNbArgs,sBuffer,sCommand)
+      //CHECK COMMAND
+      call commandCheck(nArgs,nNbArgs,sBuffer,sCommand,bFlag)
+      if bFlag==true
+        //EXECUTE COMMAND
+        call commandExecute(nArgs,nNbArgs,sBuffer,sCommand)
+      else
+        logMsg("serverCmd: bFlag == false")
+      endIf
+      //OUTPUT WRITE
+      call socketWrite(sBuffer,nBuffer)
+      nBytes=sioSet(sSocket1,nBuffer)
+      if (nBytes<0)
+        logMsg("serverCmd: sioSet error > "+toString("",nBytes))
+      endIf
+    else
+      logMsg("serverCmd: sioget error > "+chr(nBytes))
+    endIf
+  endWhile
+end]]></Code>
+  </Program>
+</Programs>

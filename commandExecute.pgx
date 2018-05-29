@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="commandExecute" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="nArgs" type="num" use="reference" xsi:type="array" dimensions="1" />
+      <Parameter name="nNbArgs" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="sBuffer" type="string" use="reference" xsi:type="element" dimensions="1" />
+      <Parameter name="sCommand" type="string" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="nGetArg1" type="num" xsi:type="array" size="1" />
+      <Local name="nGetArg2" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //execute command stored in global variables
+  //bFlag check must be done previously in start()
+  switch sCommand
+    case "gripper"
+      call MX1_COMMANDS:gripper(nArgs[0])
+      sBuffer="ACK: "+sCommand+" "+toString("",nArgs[0])
+    break
+    case "power"
+      call MX1_COMMANDS:power(nArgs[0])
+      sBuffer="ACK: "+sCommand+" "+toString("",nArgs[0])
+    break
+    case "stopMove"
+      call MX1_COMMANDS:stopMove()
+      //stopMove()
+      sBuffer="ACK: "+sCommand
+    break
+    case "restartMove"
+      call MX1_COMMANDS:restartMove()
+      //restartMove()
+      sBuffer="ACK: "+sCommand
+    break
+    case "isSettled"
+      call MX1_COMMANDS:isSettled(nGetArg1)
+      //bGetArg1 = isSettled() 
+      sBuffer="ACK: "+sCommand+" "+toString("",nGetArg1)
+    break
+    case "setFrame"
+      call MX1_COMMANDS:setFrame(nArgs[0])
+      sBuffer="ACK: "+sCommand+" "+toString("",nArgs[0])
+    break
+    case "setTool"
+      call MX1_COMMANDS:setTool(nArgs[0])
+      sBuffer="ACK: "+sCommand+" "+toString("",nArgs[0])
+    break
+    case "moveX"
+      call MX1_COMMANDS:moveX(nArgs[0])
+      sBuffer="ACK: "+sCommand+" "+toString("",nArgs[0])
+    break
+    case "moveY"
+      call MX1_COMMANDS:moveY(nArgs[0])
+      sBuffer="ACK: "+sCommand+" "+toString("",nArgs[0])
+    break
+    case "moveZ"
+      call MX1_COMMANDS:moveZ(nArgs[0])
+      sBuffer="ACK: "+sCommand+" "+toString("",nArgs[0])
+    break
+    case "getX"
+      call MX1_COMMANDS:getX(nGetArg1)
+      sBuffer="ACK: "+sCommand+" "+toString(".3",nGetArg1)
+    break
+    case "getY"
+      call MX1_COMMANDS:getY(nGetArg1)
+      sBuffer="ACK: "+sCommand+" "+toString(".3",nGetArg1)
+    break
+    case "getZ"
+      call MX1_COMMANDS:getZ(nGetArg1)
+      sBuffer="ACK: "+sCommand+" "+toString(".3",nGetArg1)
+    break
+    default
+      logMsg("commandExecute fail: "+sCommand)
+    break
+  endSwitch
+end]]></Code>
+  </Program>
+</Programs>
