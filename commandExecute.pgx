@@ -48,15 +48,15 @@
     break
     case "moveX"
       call MX1_COMMANDS:moveX(nArgs[0])
-      sBuffer="ACK: "+sCommand+" "+toString("",nArgs[0])
+      sBuffer="ACK: "+sCommand+" "+toString(".3",nArgs[0])
     break
     case "moveY"
       call MX1_COMMANDS:moveY(nArgs[0])
-      sBuffer="ACK: "+sCommand+" "+toString("",nArgs[0])
+      sBuffer="ACK: "+sCommand+" "+toString(".3",nArgs[0])
     break
     case "moveZ"
       call MX1_COMMANDS:moveZ(nArgs[0])
-      sBuffer="ACK: "+sCommand+" "+toString("",nArgs[0])
+      sBuffer="ACK: "+sCommand+" "+toString(".3",nArgs[0])
     break
     case "getX"
       call MX1_COMMANDS:getX(nGetArg1)
