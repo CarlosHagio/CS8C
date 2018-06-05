@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="power" access="public" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="nPower" type="num" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  //0  to disable power
+  //1  to enable power
+  switch nPower
+    case 0
+      disablePower()
+    break
+    case 1
+      enablePower()
+    break
+    default
+      logMsg("power: argumento invalido"+chr(nPower))
+    break
+  endSwitch
+end]]></Code>
+  </Program>
+</Programs>

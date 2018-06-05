@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="oResetFault" access="public" >
+    <Description><![CDATA[Reseta rele de seguranca]]></Description>
+    <Code><![CDATA[begin
+  dioSet(oResetFault,1)
+  delay(1)
+  dioSet(oResetFault,0)
+end]]></Code>
+  </Program>
+</Programs>

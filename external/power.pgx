@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="power" access="public" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="bState" type="bool" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="bFlag" type="bool" use="reference" xsi:type="array" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  switch bState
+    case false
+      disablePower()
+      bFlag=true
+    break
+    case true
+      enablePower()
+      if (watch(isPowered(),3)==false)
+        bFlag=false
+      else
+        bFlag=true
+      endIf
+    break
+  endSwitch
+end]]></Code>
+  </Program>
+</Programs>

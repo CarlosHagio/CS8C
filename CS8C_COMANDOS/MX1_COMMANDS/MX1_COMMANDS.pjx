@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3" >
+  <Parameters version="s7.9.4" stackSize="5000" millimeterUnit="true" />
+  <Programs>
+    <Program file="changeToolMove.pgx" />
+    <Program file="deleteMove.pgx" />
+    <Program file="external.pgx" />
+    <Program file="getX.pgx" />
+    <Program file="getY.pgx" />
+    <Program file="getZ.pgx" />
+    <Program file="goBeam.pgx" />
+    <Program file="goHotel.pgx" />
+    <Program file="gripper.pgx" />
+    <Program file="isSettled.pgx" />
+    <Program file="moveX.pgx" />
+    <Program file="moveY.pgx" />
+    <Program file="moveZ.pgx" />
+    <Program file="pickPlate.pgx" />
+    <Program file="placePlate.pgx" />
+    <Program file="power.pgx" />
+    <Program file="restartMove.pgx" />
+    <Program file="setFrame.pgx" />
+    <Program file="setTool.pgx" />
+    <Program file="start.pgx" />
+    <Program file="stop.pgx" />
+    <Program file="stopMove.pgx" />
+  </Programs>
+  <Database>
+    <Data file="MX1_COMMANDS.dtx" />
+  </Database>
+  <Libraries>
+    <Library alias="io" path="Disk://io" autoload="true" password="" />
+    <Library alias="external" path="Disk://external" autoload="true" password="" />
+  </Libraries>
+  <Types>
+  </Types>
+</Project>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://www.staubli.com/robotics/VAL3/Project/3" >
+  <Parameters version="s7.9.4" stackSize="5000" millimeterUnit="true" />
+  <Programs>
+    <Program file="aLight1.pgx" />
+    <Program file="aLight2.pgx" />
+    <Program file="aLight3.pgx" />
+    <Program file="iCryoLongIn.pgx" />
+    <Program file="iCryoShortIn.pgx" />
+    <Program file="iEmergencyIn.pgx" />
+    <Program file="iFluor.pgx" />
+    <Program file="iFluorClosed.pgx" />
+    <Program file="iFluorOpen.pgx" />
+    <Program file="iGrip.pgx" />
+    <Program file="iGripClosed.pgx" />
+    <Program file="iGripOpen.pgx" />
+    <Program file="iHeater.pgx" />
+    <Program file="iIdent1.pgx" />
+    <Program file="iIdent2.pgx" />
+    <Program file="iIdent3.pgx" />
+    <Program file="iLevel1.pgx" />
+    <Program file="iLevel2.pgx" />
+    <Program file="iLevel3.pgx" />
+    <Program file="iLevel4.pgx" />
+    <Program file="iLevel5.pgx" />
+    <Program file="iLevelFault.pgx" />
+    <Program file="iLidClosed.pgx" />
+    <Program file="iPilatusPos.pgx" />
+    <Program file="iPlate1.pgx" />
+    <Program file="iPlate2.pgx" />
+    <Program file="iPlate3.pgx" />
+    <Program file="iPressureSensor.pgx" />
+    <Program file="iRack1.pgx" />
+    <Program file="iRack2.pgx" />
+    <Program file="iRack3.pgx" />
+    <Program file="iRack4.pgx" />
+    <Program file="iSample.pgx" />
+    <Program file="iSchock.pgx" />
+    <Program file="iState.pgx" />
+    <Program file="iTeste.pgx" />
+    <Program file="iTool.pgx" />
+    <Program file="ioLinks.pgx" />
+    <Program file="oCryoLongOut.pgx" />
+    <Program file="oCryoShortOut.pgx" />
+    <Program file="oEmergencyOut.pgx" />
+    <Program file="oFluorDet.pgx" />
+    <Program file="oGripCmd.pgx" />
+    <Program file="oGripCmd2.pgx" />
+    <Program file="oHeater.pgx" />
+    <Program file="oHeaterTask.pgx" />
+    <Program file="oLid.pgx" />
+    <Program file="oPilatusCover.pgx" />
+    <Program file="oResetFault.pgx" />
+    <Program file="oSample.pgx" />
+    <Program file="oShutter.pgx" />
+    <Program file="oVacuumValve.pgx" />
+    <Program file="power.pgx" />
+    <Program file="start.pgx" />
+    <Program file="stop.pgx" />
+  </Programs>
+  <Database>
+    <Data file="external.dtx" />
+  </Database>
+  <Libraries>
+    <Library alias="io" path="io" autoload="true" password="" />
+  </Libraries>
+  <Types>
+  </Types>
+</Project>

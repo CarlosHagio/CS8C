@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="iFluor" access="public" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="nNum" type="num" use="reference" xsi:type="array" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  if (dioGet(iFluorClosed)==0) and (dioGet(iFluorOpen)==1)
+    nNum=1
+  endIf
+  if (dioGet(iFluorClosed)==1) and (dioGet(iFluorOpen)==0)
+    nNum=0
+  endIf
+end]]></Code>
+  </Program>
+</Programs>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="pickPlate" access="public" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="nPlate" type="num" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  //robot at pHotel[0] or jHome
+  call goHotel(0)
+  open(flange)
+  movel(appro(pHotel[nPlate],trPickPlateHor),flange,mNomSpeed)
+  movel(appro(pHotel[nPlate],trPickPlateVer),flange,mNomSpeed)
+  movel(pHotel[nPlate],flange,mNomSpeed)
+  close(flange)
+  delay(1)
+  movel(appro(pHotel[nPlate],trPickPlateVer),flange,mNomSpeed)
+  movel(appro(pHotel[nPlate],trPickPlateHor),flange,mNomSpeed)
+  movel(pHotel[0],flange,mNomSpeed)
+  waitEndMove()
+  nHoldingPlate=nPlate
+end]]></Code>
+  </Program>
+</Programs>

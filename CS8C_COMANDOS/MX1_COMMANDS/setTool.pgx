@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="setTool" access="public" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="nTool" type="num" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  switch nTool
+    case 0
+      tActive=flange
+    break
+    case 1
+      tActive=tGripper
+    break
+    case 2
+    break
+    default
+      logMsg("erro setTool: "+chr(nTool))
+    break
+  endSwitch
+end]]></Code>
+  </Program>
+</Programs>

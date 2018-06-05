@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="goHotel" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="nFrom" type="num" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Locals>
+      <Local name="movHorizontal" type="trsf" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //FUTURE ADJUSTMENT: argument nFrom
+  //nFrom = 0 -> jHome or pHotel [0] to pHotel[0]
+  //nFrom = 1 -> pBeam to pHotel[0]
+  switch nFrom
+    case 0
+      movel(pHotel[0],flange,mNomSpeed)
+    break
+    case 1
+      movel(pBeam,flange,mNomSpeed)
+      movel(pHotel2Beam[5],flange,mNomSpeed)
+      movel(pHotel2Beam[4],flange,mNomSpeed)
+      movel(pHotel2Beam[3],flange,mNomSpeed)
+      movel(pHotel2Beam[2],flange,mNomSpeed)
+      movel(pHotel2Beam[1],flange,mNomSpeed)
+      movel(pHotel2Beam[0],flange,mNomSpeed)
+      movel(pHotel[0],flange,mNomSpeed)
+    break
+    default
+      popUpMsg("error goHotel: nFrom"+chr(nFrom))
+    break
+  endSwitch
+  waitEndMove()
+end]]></Code>
+  </Program>
+</Programs>

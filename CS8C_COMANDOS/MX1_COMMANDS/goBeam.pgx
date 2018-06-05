@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="goBeam" access="private" >
+    <Code><![CDATA[begin
+  //FUTURE ADJUSTMENT: argument nFrom
+  //nFrom = 0 -> Dewar to Beam
+  //nFrom = 1 -> Hotel to Beam
+  movel(pHotel[0],flange,mNomSpeed)
+  movel(pHotel2Beam[0],flange,mNomSpeed)
+  movel(pHotel2Beam[1],flange,mNomSpeed)
+  movel(pHotel2Beam[2],flange,mNomSpeed)
+  movel(pHotel2Beam[3],flange,mNomSpeed)
+  movel(pHotel2Beam[4],flange,mNomSpeed)
+  movel(pHotel2Beam[5],flange,mNomSpeed)
+  movel(pBeam,flange,mNomSpeed)
+end]]></Code>
+  </Program>
+</Programs>

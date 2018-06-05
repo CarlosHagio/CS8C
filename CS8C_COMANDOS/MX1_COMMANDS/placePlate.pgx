@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="placePlate" access="public" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="nPlate" type="num" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  //ADJUSTMENT: chance goHotel argument
+  //when test phase is over (0 to 1)
+  //robot supposed to be at Beam (goHotel(1))
+  call goHotel(1)
+  movel(appro(pHotel[nHoldingPlate],trPickPlateHor),flange,mNomSpeed)
+  movel(appro(pHotel[nHoldingPlate],trPickPlateVer),flange,mNomSpeed)
+  movel(pHotel[nHoldingPlate],flange,mNomSpeed)
+  open(flange)
+  delay(1)
+  movel(appro(pHotel[nHoldingPlate],trPickPlateVer),flange,mNomSpeed)
+  movel(appro(pHotel[nHoldingPlate],trPickPlateHor),flange,mNomSpeed)
+  movel(pHotel[0],flange,mNomSpeed)
+  waitEndMove()
+  nHoldingPlate=0
+end]]></Code>
+  </Program>
+</Programs>
