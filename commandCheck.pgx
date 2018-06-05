@@ -12,8 +12,20 @@
   //check command name and arguments
   //everything passed by reference from serverCmd 
   bFlag=false
+  //popUpMsg(sCommand)
   switch sCommand
     case "gripper"
+      if nNbArgs!=1
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
+      else
+        if (nArgs[0]<0) or (nArgs[0]>1)
+          sBuffer="NACK: "+sCommand+" nArgs[0]: "+chr(nArgs[0])
+        else
+          bFlag=true
+        endIf
+      endIf
+    break
+    case "pickTool"
       if nNbArgs!=1
         sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
       else
@@ -43,6 +55,13 @@
       endIf
     break
     case "restartMove"
+      if nNbArgs!=0
+        sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
+      else
+        bFlag=true
+      endIf
+    break
+    case "deleteMove"
       if nNbArgs!=0
         sBuffer="NACK: "+sCommand+" nNbArgs: "+chr(nNbArgs)
       else

@@ -14,9 +14,14 @@
     <Code><![CDATA[begin
   //execute command stored in global variables
   //bFlag check must be done previously in start()
+  //popUpMsg(sCommand)
   switch sCommand
     case "gripper"
       call MX1_COMMANDS:gripper(nArgs[0])
+      sBuffer="ACK: "+sCommand+" "+toString("",nArgs[0])
+    break
+    case "pickTool"
+      call MX1_COMMANDS:changeToolMove(nArgs[0])
       sBuffer="ACK: "+sCommand+" "+toString("",nArgs[0])
     break
     case "power"
@@ -31,6 +36,10 @@
     case "restartMove"
       call MX1_COMMANDS:restartMove()
       //restartMove()
+      sBuffer="ACK: "+sCommand
+    break
+    case "deleteMove"
+      call MX1_COMMANDS:deleteMove()
       sBuffer="ACK: "+sCommand
     break
     case "isSettled"
