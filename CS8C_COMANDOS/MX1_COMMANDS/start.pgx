@@ -10,7 +10,8 @@
       <Local name="sBufer" type="string" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
-  call external:start()
+  //call external:start()
+  //pDest=here(tActive,frActive)
 end]]></Code>
   </Program>
 </Programs>

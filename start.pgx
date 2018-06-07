@@ -2,7 +2,8 @@
 <Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
   <Program name="start" access="private" >
     <Code><![CDATA[begin
-  call MX1_COMMANDS:external()
+  call MX1_COMMANDS:setup()
+  //call MX1_COMMANDS:start()
   call ioLinks()
   taskCreate "network",100,serverCmd()
 end]]></Code>

@@ -21,6 +21,7 @@
     <Program file="restartMove.pgx" />
     <Program file="setFrame.pgx" />
     <Program file="setTool.pgx" />
+    <Program file="setup.pgx" />
     <Program file="start.pgx" />
     <Program file="stop.pgx" />
     <Program file="stopMove.pgx" />

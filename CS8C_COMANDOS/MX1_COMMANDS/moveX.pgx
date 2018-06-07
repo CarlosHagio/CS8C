@@ -9,9 +9,11 @@
       <Local name="pHere" type="point" xsi:type="array" size="1" />
     </Locals>
     <Code><![CDATA[begin
-  pHere=here(tActive,frActive)
-  pFinal=compose(pHere,frActive,{nDx,0,0,0,0,0})
-  movel(pFinal,tActive,mNomSpeed)
+  //pHere=here(tActive,frActive)
+  //pFinal=compose(pHere,frActive,{nDx,0,0,0,0,0})
+  pDest=compose(pDest,frActive,{nDx,0,0,0,0,0})
+  //movel(pFinal,tActive,mNomSpeed)
+  movel(pDest,tActive,mNomSpeed)
 end]]></Code>
   </Program>
 </Programs>

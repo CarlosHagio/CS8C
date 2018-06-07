@@ -3,6 +3,7 @@
   <Program name="deleteMove" access="public" >
     <Code><![CDATA[begin
   resetMotion()
+  pDest=here(tActive,frActive)
 end]]></Code>
   </Program>
 </Programs>
